@@ -85,11 +85,46 @@ CREATE TABLE crescimento_data (
 DROP TABLE IF EXISTS resultados_data;
 CREATE TABLE resultados_data (
   `ticker_id` VARCHAR(10) UNIQUE DEFAULT NULL,
+  `receita_liquida` DOUBLE DEFAULT 0.0,
+  `custos` DOUBLE DEFAULT 0.0,
+  `lucro_bruto` DOUBLE DEFAULT 0.0,
+  `despesas/receitas_operacionais` DOUBLE DEFAULT 0.0,
+  `ebitda` DOUBLE DEFAULT 0.0,
+  `amortizacao/depreciacao` DOUBLE DEFAULT 0.0,
+  `ebit` DOUBLE DEFAULT 0.0,
+  `resultado_nao_operacional` DOUBLE DEFAULT 0.0,
+  `resultado_financeiro` DOUBLE DEFAULT 0.0,
+  `impostos` DOUBLE DEFAULT 0.0,
+  `lucro_liquido` DOUBLE DEFAULT 0.0,
+  `lucro_atribuido_a_controladora` DOUBLE DEFAULT 0.0,
+  `lucro_atribuido_a_nao_controladores` DOUBLE DEFAULT 0.0,
+  `capex` DOUBLE DEFAULT 0.0,
+  `divida_bruta` DOUBLE DEFAULT 0.0,
+  `divida_liquida` DOUBLE DEFAULT 0.0,
+  `roe` DOUBLE DEFAULT 0.0,
+  `roic` DOUBLE DEFAULT 0.0,
+  `margem_bruta` DOUBLE DEFAULT 0.0,
+  `margem_ebitda` DOUBLE DEFAULT 0.0,
+  `margem_liquida` DOUBLE DEFAULT 0.0,
+  `divida_liquida/ebitda` DOUBLE DEFAULT 0.0,
   FOREIGN KEY (ticker_id) REFERENCES ticker(ticker_id)
 );
 DROP TABLE IF EXISTS fluxo_de_caixa_data;
 CREATE TABLE fluxo_de_caixa_data (
   `ticker_id` VARCHAR(10) UNIQUE DEFAULT NULL,
+  `caixa_liquido_atividades_operacionais` DOUBLE DEFAULT 0.0,
+  `caixa_gerado_nas_operacoes` DOUBLE DEFAULT 0.0,
+  `lucro_liquido` DOUBLE DEFAULT 0.0,
+  `equivalencia_patrimonial` DOUBLE DEFAULT 0.0,
+  `depreciacao_e_amortizacao` DOUBLE DEFAULT 0.0,
+  `variacoes_nos_ativos_e_passivos` DOUBLE DEFAULT 0.0,
+  `caixa_liquido_atividades_de_investimento` DOUBLE DEFAULT 0.0,
+  `fluxo_de_caixa_livre` DOUBLE DEFAULT 0.0,
+  `caixa_liquido_atividades_de_financiamento` DOUBLE DEFAULT 0.0,
+  `variacao_cambil_de_caixa_e_equivalentes` DOUBLE DEFAULT 0.0,
+  `aumento_de_caixa_e_equivalentes` DOUBLE DEFAULT 0.0,
+  `saldo_inicial_de_caixa_e_equivalentes` DOUBLE DEFAULT 0.0,
+  `saldo_final_de_caixa_e_equivalentes` DOUBLE DEFAULT 0.0,
   FOREIGN KEY (ticker_id) REFERENCES ticker(ticker_id)
 );
 DROP TABLE IF EXISTS balanco_patrimonial_data;
