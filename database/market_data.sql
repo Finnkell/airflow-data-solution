@@ -11,6 +11,8 @@ CREATE TABLE ticker (
 DROP TABLE IF EXISTS ohlc_data;
 CREATE TABLE ohlc_data (
   `ticker_id` VARCHAR(10) UNIQUE,
+  `periodo` VARCHAR(4) DEFAULT NULL,
+  `datetime` DATETIME,
   `open_price` DOUBLE DEFAULT 0.0,
   `high_price` DOUBLE DEFAULT 0.0,
   `low_price` DOUBLE DEFAULT 0.0,
@@ -21,6 +23,7 @@ CREATE TABLE ohlc_data (
 DROP TABLE IF EXISTS tick_by_tick_data;
 CREATE TABLE tick_by_tick_data (
   `ticker_id` VARCHAR(10) UNIQUE,
+  `datetime` DATETIME,
   `bid` DOUBLE DEFAULT 0.0,
   `ask` DOUBLE DEFAULT 0.0,
   `last` DOUBLE DEFAULT 0.0,
@@ -30,6 +33,7 @@ CREATE TABLE tick_by_tick_data (
 DROP TABLE IF EXISTS valuation_data;
 CREATE TABLE valuation_data (
   `ticker_id` VARCHAR(10) UNIQUE,
+  `datetime` DATETIME,
   `dy` DOUBLE DEFAULT 0.0,
   `p/l` DOUBLE DEFAULT 0.0,
   `peg_ratio` DOUBLE DEFAULT 0.0,
@@ -49,6 +53,7 @@ CREATE TABLE valuation_data (
 DROP TABLE IF EXISTS endividamento_data;
 CREATE TABLE endividamento_data (
   `ticker_id` VARCHAR(10) UNIQUE,
+  `datetime` DATETIME,
   `divida_liquida/pl` DOUBLE DEFAULT 0.0,
   `divida_liquida/ebitda` DOUBLE DEFAULT 0.0,
   `divida_liquida/ebit` DOUBLE DEFAULT 0.0,
@@ -60,6 +65,7 @@ CREATE TABLE endividamento_data (
 DROP TABLE IF EXISTS eficiencia_data;
 CREATE TABLE eficiencia_data (
   `ticker_id` VARCHAR(10) UNIQUE,
+  `datetime` DATETIME,
   `margem_bruta` DOUBLE DEFAULT 0.0,
   `margem_ebitda` DOUBLE DEFAULT 0.0,
   `margem_ebit` DOUBLE DEFAULT 0.0,
@@ -69,6 +75,7 @@ CREATE TABLE eficiencia_data (
 DROP TABLE IF EXISTS rentabilidade_data;
 CREATE TABLE rentabilidade_data (
   `ticker_id` VARCHAR(10) UNIQUE,
+  `datetime` DATETIME,
   `roe` DOUBLE DEFAULT 0.0,
   `roa` DOUBLE DEFAULT 0.0,
   `roic` DOUBLE DEFAULT 0.0,
@@ -78,6 +85,7 @@ CREATE TABLE rentabilidade_data (
 DROP TABLE IF EXISTS crescimento_data;
 CREATE TABLE crescimento_data (
   `ticker_id` VARCHAR(10) UNIQUE,
+  `datetime` DATETIME,
   `cagr_receitas` DOUBLE DEFAULT 0.0,
   `cagr_lucros` DOUBLE DEFAULT 0.0,
   FOREIGN KEY (ticker_id) REFERENCES ticker(ticker_id)
@@ -85,6 +93,7 @@ CREATE TABLE crescimento_data (
 DROP TABLE IF EXISTS resultados_data;
 CREATE TABLE resultados_data (
   `ticker_id` VARCHAR(10) UNIQUE,
+  `datetime` DATETIME,
   `receita_liquida` DOUBLE DEFAULT 0.0,
   `custos` DOUBLE DEFAULT 0.0,
   `lucro_bruto` DOUBLE DEFAULT 0.0,
@@ -112,6 +121,7 @@ CREATE TABLE resultados_data (
 DROP TABLE IF EXISTS fluxo_de_caixa_data;
 CREATE TABLE fluxo_de_caixa_data (
   `ticker_id` VARCHAR(10) UNIQUE,
+  `datetime` DATETIME,
   `caixa_liquido_atividades_operacionais` DOUBLE DEFAULT 0.0,
   `caixa_gerado_nas_operacoes` DOUBLE DEFAULT 0.0,
   `lucro_liquido` DOUBLE DEFAULT 0.0,
@@ -130,6 +140,7 @@ CREATE TABLE fluxo_de_caixa_data (
 DROP TABLE IF EXISTS balanco_patrimonial_data;
 CREATE TABLE balanco_patrimonial_data (
   `ticker_id` VARCHAR(10) UNIQUE,
+  `datetime` DATETIME,
   `ativo_total` DOUBLE DEFAULT 0.0,
   `ativo_circulante` DOUBLE DEFAULT 0.0,
   `aplicacoes_financeiras` DOUBLE DEFAULT 0.0,
