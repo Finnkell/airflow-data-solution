@@ -28,7 +28,7 @@ CREATE TABLE tick_by_tick_data (
   FOREIGN KEY (ticker_id) REFERENCES ticker(ticker_id)
 );
 DROP TABLE IF EXISTS valuation_data;
-CREATE TABLE fundamentus_data (
+CREATE TABLE valuation_data (
   `ticker_id` VARCHAR(10) UNIQUE DEFAULT NULL,
   `dy` DOUBLE DEFAULT 0.0,
   `p/l` DOUBLE DEFAULT 0.0,
